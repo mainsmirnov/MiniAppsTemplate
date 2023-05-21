@@ -1,4 +1,4 @@
-export type TAction<TType, TData = undefined> = [
+export type Action<TType, TData = undefined> = [
   TData,
 ] extends [undefined]
   ? () => { type: TType }

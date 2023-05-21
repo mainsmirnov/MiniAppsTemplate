@@ -1,19 +1,18 @@
-import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
-import { View } from '@vkontakte/vkui';
+import { PanelIds, ViewIds } from 'enums/router';
+import { useRouter } from 'hooks/useRouter';
 
 import { selectActivePanel } from 'store/router/selectors/selectActivePanel';
-import { selectPanelHistory } from 'store/router/selectors/selectPanelHistory';
 import { selectActiveModal } from 'store/router/selectors/selectActiveModal';
+import { selectPanelHistory } from 'store/router/selectors/history/selectPanelHistory';
 
-import router from 'init/router';
-import { PanelIds } from 'init/routerEnums';
+import { View } from '@vkontakte/vkui';
+import { ShowId } from './panels/ShowId/ShowId';
 
-import { RootModal } from './modals/RootModal';
-import { Home } from './panels/Home/Home';
+export const App = () => {
+  const { closePanel } = useRouter();
 
-export const App: FC = () => {
   const activePanel = useSelector(selectActivePanel);
   const activeModal = useSelector(selectActiveModal);
   const panelsHistory = useSelector(selectPanelHistory);
@@ -23,12 +22,13 @@ export const App: FC = () => {
       return;
     }
 
-    router.closePanel();
+    closePanel();
   };
 
   return (
-    <View onSwipeBack={onSwipeBack} history={panelsHistory} modal={<RootModal />} activePanel={activePanel}>
-      <Home id={PanelIds.Home} />
+    <View id={ViewIds.Home} onSwipeBack={onSwipeBack} history={panelsHistory} activePanel={activePanel}>
+      <ShowId id={PanelIds.Panel1} />
+      <ShowId id={PanelIds.Panel2} />
     </View>
   );
 };

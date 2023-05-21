@@ -1,35 +1,41 @@
-import { routerStore } from './routerStore';
-import { TRouterStore } from './TRouterStore';
-import { TRouterActions } from './TRouterActions';
+import { RouterStore, routerStore } from './routerStore';
 
-import { ACTIVE_PANEL_SET } from './sets/setActivePanel';
+import { ACTIVE_PANEL_SET, setActivePanel } from './sets/setActivePanel';
 import { actionSetActivePanel } from './actions/actionSetActivePanel';
-import { ACTIVE_MODAL_SET } from './sets/setActiveModal';
+import { ACTIVE_MODAL_SET, setActiveModal } from './sets/setActiveModal';
 import { actionSetActiveModal } from './actions/actionSetActiveModal';
-import { PANEL_HISTORY_ADD } from './sets/addPanelInHistory';
-import { actionAddPanelInHistory } from './actions/actionAddPanelInHistory';
-import { ACTIVE_VIEW_SET } from './sets/setActiveView';
+import { ACTIVE_VIEW_SET, setActiveView } from './sets/setActiveView';
 import { actionSetActiveView } from './actions/actionSetActiveView';
-import { VIEW_HISTORY_ADD } from './sets/addViewInHistory';
-import { actionAddViewInHistory } from './actions/actionAddViewInHistory';
-import { MODAL_HISTORY_ADD } from './sets/addModalInHistory';
-import { actionAddModalInHistory } from './actions/actionAddModalInHistory';
-import { VIEW_BACK } from './sets/backView';
-import { actionBackView } from './actions/actionBackView';
-import { ROUTER_PARAMS_SET } from './sets/setRouterParams';
-import { actionSetRouterParams } from './actions/actionSetRouterParams';
-import { MODAL_BACK } from './sets/backModal';
-import { actionBackModal } from './actions/actionBackModal';
-import { PANEL_BACK } from './sets/backPanel';
-import { actionBackPanel } from './actions/actionBackPanel';
-import { MODALS_CLOSE } from './sets/closeModals';
-import { actionCloseModals } from './actions/actionCloseModals';
+import { MODAL_HISTORY_SET, setModalHistory } from './sets/history/setModalHistory';
+import { PANEL_HISTORY_SET, setPanelHistory } from './sets/history/setPanelHistory';
+import { VIEW_HISTORY_SET, setViewHistory } from './sets/history/setViewHistory';
+import { actionSetModalHistory } from './actions/history/actionSetModalHistory';
+import { actionSetPanelHistory } from './actions/history/actionSetPanelHistory';
+import { actionSetViewHistory } from './actions/history/actionSetViewHistory';
+
+export type RouterActions = ReturnType<
+| typeof setModalHistory
+| typeof setPanelHistory
+| typeof setViewHistory
+| typeof setActiveModal
+| typeof setActivePanel
+| typeof setActiveView
+>;
 
 export const routerReducer = (
   state = routerStore,
-  action: TRouterActions,
-): TRouterStore => {
+  action: RouterActions,
+): RouterStore => {
   switch (action.type) {
+    case MODAL_HISTORY_SET:
+      return actionSetModalHistory(state, action.data);
+
+    case PANEL_HISTORY_SET:
+      return actionSetPanelHistory(state, action.data);
+
+    case VIEW_HISTORY_SET:
+      return actionSetViewHistory(state, action.data);
+
     case ACTIVE_PANEL_SET:
       return actionSetActivePanel(state, action.data);
 
@@ -38,30 +44,6 @@ export const routerReducer = (
 
     case ACTIVE_VIEW_SET:
       return actionSetActiveView(state, action.data);
-
-    case PANEL_HISTORY_ADD:
-      return actionAddPanelInHistory(state, action.data);
-
-    case MODAL_HISTORY_ADD:
-      return actionAddModalInHistory(state, action.data);
-
-    case VIEW_HISTORY_ADD:
-      return actionAddViewInHistory(state, action.data);
-
-    case VIEW_BACK:
-      return actionBackView(state);
-
-    case MODAL_BACK:
-      return actionBackModal(state);
-
-    case PANEL_BACK:
-      return actionBackPanel(state);
-
-    case ROUTER_PARAMS_SET:
-      return actionSetRouterParams(state, action.data);
-
-    case MODALS_CLOSE:
-      return actionCloseModals(state);
 
     default:
       return state;

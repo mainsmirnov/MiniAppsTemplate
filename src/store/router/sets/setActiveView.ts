@@ -1,10 +1,10 @@
-import { TAction } from 'store/TAction';
-import { ViewIds } from 'init/routerEnums';
+import { Action } from 'store/Action';
+import { ViewIds } from 'enums/router';
 
 export const ACTIVE_VIEW_SET = 'activeView/set';
 
-export const setActiveView: TAction<typeof ACTIVE_VIEW_SET, ViewIds> = (activePanel: ViewIds) => ({
+export const setActiveView: Action<typeof ACTIVE_VIEW_SET, ViewIds> = (activeView) => ({
   type: ACTIVE_VIEW_SET,
-  data: activePanel,
+  data: activeView,
 });
 

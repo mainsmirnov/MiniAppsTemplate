@@ -1,9 +1,10 @@
 export enum ViewIds {
-  BaseFlow = 'BaseFlow'
+  Home = 'Home'
 }
 
 export enum PanelIds {
-  Home = 'Home'
+  Panel1 = 'Panel1',
+  Panel2 = 'Panel2'
 }
 
 export enum ModalIds {

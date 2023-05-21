@@ -1,11 +1,10 @@
-import { PanelIds } from 'init/routerEnums';
-
-import { TRouterStore } from '../TRouterStore';
+import { RouterStore } from '../routerStore';
+import { setActivePanel } from '../sets/setActivePanel';
 
 export const actionSetActivePanel = (
-  state: TRouterStore,
-  activePanel: PanelIds,
-): TRouterStore => ({
+  state: RouterStore,
+  activePanel: ReturnType<typeof setActivePanel>['data'],
+): RouterStore => ({
   ...state,
   activePanel,
 });
