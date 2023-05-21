@@ -1,11 +1,10 @@
-import { ModalIds } from 'init/routerEnums';
-
-import { TRouterStore } from '../TRouterStore';
+import { RouterStore } from '../routerStore';
+import { setActiveModal } from '../sets/setActiveModal';
 
 export const actionSetActiveModal = (
-  state: TRouterStore,
-  activeModal: ModalIds|null,
-): TRouterStore => ({
+  state: RouterStore,
+  activeModal: ReturnType<typeof setActiveModal>['data'],
+): RouterStore => ({
   ...state,
   activeModal,
 });

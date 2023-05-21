@@ -1,33 +1,23 @@
-import { FC, useEffect, useState, useCallback } from 'react';
+import { useEffect } from 'react';
 
-import bridge, { AnyReceiveMethodName, AppearanceSchemeType, VKBridgeEvent, VKUpdateConfigData } from '@vkontakte/vk-bridge';
+import bridge from '@vkontakte/vk-bridge';
 
-import { ConfigProvider as VKUIConfigProvider, Scheme } from '@vkontakte/vkui';
+import { ConfigProvider as VKUIConfigProvider } from '@vkontakte/vkui';
 import { Adaptive } from './Adaptive';
+import { useRouter } from '../hooks/useRouter';
 
-export const ConfigProvider: FC = () => {
-  const [scheme, setScheme] = useState<AppearanceSchemeType>(Scheme.BRIGHT_LIGHT);
-
-  const bridgeListener = useCallback(
-    ({ detail: { type, data } }: VKBridgeEvent<AnyReceiveMethodName>) => {
-      if (type !== 'VKWebAppUpdateConfig') {
-        return;
-      }
-
-      setScheme((data as VKUpdateConfigData).scheme);
-    },
-    [],
-  );
+export const ConfigProvider = () => {
+  const { closeFromBrowserHistory } = useRouter();
 
   useEffect(() => {
-    bridge.subscribe(bridgeListener);
-    void bridge.send('VKWebAppInit');
+    window.addEventListener('popstate', closeFromBrowserHistory);
 
-    return () => bridge.unsubscribe(bridgeListener);
-  }, []);
+    void bridge.send('VKWebAppInit');
+    return () => window.removeEventListener('popstate', closeFromBrowserHistory);
+  }, [closeFromBrowserHistory]);
 
   return (
-    <VKUIConfigProvider scheme={scheme}>
+    <VKUIConfigProvider>
       <Adaptive />
     </VKUIConfigProvider>
   );

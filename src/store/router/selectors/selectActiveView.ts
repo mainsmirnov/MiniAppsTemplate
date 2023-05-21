@@ -1,4 +1,4 @@
-import { TStore } from '../../TStore';
-import { ViewIds } from '../../../init/routerEnums';
+import { Store } from 'store/Store';
+import { ViewIds } from 'enums/router';
 
-export const selectActiveView = (state: TStore): ViewIds => state.router.activeView;
+export const selectActiveView = (state: Store): ViewIds => state.router.activeView;

@@ -1,5 +1,9 @@
 {
-  "extends": ["@vkontakte/eslint-config/typescript/react"],
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "@vkontakte/eslint-config/typescript/react"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaVersion": 6,
@@ -32,6 +36,9 @@
     }],
     "no-restricted-imports": ["error", {
       "patterns": ["@vkontakte/icons/dist/*"]
-    }]
+    }],
+    // No-shadow rules for https://github.com/typescript-eslint/tslint-to-eslint-config/issues/856
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "warn"
   }
 }

@@ -1,21 +1,20 @@
-import { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ModalRoot } from '@vkontakte/vkui';
+import { useRouter } from 'hooks/useRouter';
+import { ModalIds } from 'enums/router';
+
 import { selectActiveModal } from 'store/router/selectors/selectActiveModal';
 
-import router from 'init/router';
-import { ModalIds } from 'init/routerEnums';
-
+import { ModalRoot } from '@vkontakte/vkui';
 import { TestModal } from './TestModal/TestModal';
 
-export const RootModal: FC = memo(() => {
+export const RootModal = () => {
+  const { closeModal } = useRouter();
   const activeModal = useSelector(selectActiveModal);
-  const modalBack = () => router.closeModal();
 
   return (
     <ModalRoot activeModal={activeModal}>
-      <TestModal id={ModalIds.TestModal} onClose={modalBack} />
+      <TestModal id={ModalIds.TestModal} onClose={closeModal} />
     </ModalRoot>
   );
-});
+};

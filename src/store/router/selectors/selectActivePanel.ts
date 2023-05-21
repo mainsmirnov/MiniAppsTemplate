@@ -1,4 +1,4 @@
-import { TStore } from '../../TStore';
-import { PanelIds } from '../../../init/routerEnums';
+import { Store } from 'store/Store';
+import { PanelIds } from 'enums/router';
 
-export const selectActivePanel = (state: TStore): PanelIds => state.router.activePanel;
+export const selectActivePanel = (state: Store): PanelIds => state.router.activePanel;

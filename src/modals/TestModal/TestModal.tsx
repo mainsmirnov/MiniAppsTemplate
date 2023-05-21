@@ -1,15 +1,15 @@
-import { FC, memo } from 'react';
+import { memo } from 'react';
 
 import { Div, ModalPage, ModalPageHeader, PanelHeaderButton } from '@vkontakte/vkui';
 import { Icon24DoneOutline } from '@vkontakte/icons';
 
-import { TDefaultModal } from '../TDefaultModal';
+import { ModalProps } from '../ModalProps';
 
-export const TestModal: FC<TDefaultModal> = memo(({ id, onClose }) => (
+export const TestModal = memo(({ id, onClose }: ModalProps) => (
   <ModalPage id={id} onClose={onClose}>
     <ModalPageHeader
-      right={
-        <PanelHeaderButton>
+      after={
+        <PanelHeaderButton aria-label="Закрыть">
           <Icon24DoneOutline onClick={onClose} />
         </PanelHeaderButton>
       }
@@ -18,8 +18,6 @@ export const TestModal: FC<TDefaultModal> = memo(({ id, onClose }) => (
     </ModalPageHeader>
     <Div>
       Some content
-      <br />
-      Some big content
     </Div>
   </ModalPage>
 ));
