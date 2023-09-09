@@ -1,9 +1,9 @@
-import { PanelProps } from '../PanelProps';
-
-import { useRouter } from 'hooks/useRouter';
 import { ModalIds, PanelIds } from 'enums/router';
+import { useRouter } from 'hooks/useRouter';
 
 import { Button, ButtonGroup, Div, Panel, PanelHeader } from '@vkontakte/vkui';
+
+import { PanelProps } from '../PanelProps';
 
 export const ShowId = ({ id }: PanelProps) => {
   const { openModal, openPanel, closePanel } = useRouter();

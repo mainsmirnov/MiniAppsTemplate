@@ -1,11 +1,11 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import '@vkontakte/vkui/dist/vkui.css';
 
 import { ConfigProvider } from 'init/ConfigProvider';
-import { store } from 'store/storeInit';
 
-import '@vkontakte/vkui/dist/vkui.css';
+import { store } from 'store/storeInit';
 
 const rootContainer = document.getElementById('root');
 if (!rootContainer) {

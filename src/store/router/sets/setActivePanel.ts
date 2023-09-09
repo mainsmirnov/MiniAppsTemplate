@@ -1,5 +1,6 @@
-import { Action } from 'store/Action';
 import { PanelIds } from 'enums/router';
+
+import { Action } from 'store/Action';
 
 export const ACTIVE_PANEL_SET = 'activePanel/set';
 

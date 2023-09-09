@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ModalIds, PanelIds, ViewIds } from 'enums/router';
 
 import { selectModalHistory } from 'store/router/selectors/history/selectModalHistory';
-import { selectViewHistory } from 'store/router/selectors/history/selectViewHistory';
-import { setPanelHistory } from 'store/router/sets/history/setPanelHistory';
 import { selectPanelHistory } from 'store/router/selectors/history/selectPanelHistory';
-import { setActivePanel } from 'store/router/sets/setActivePanel';
-import { setActiveModal } from 'store/router/sets/setActiveModal';
+import { selectViewHistory } from 'store/router/selectors/history/selectViewHistory';
 import { setModalHistory } from 'store/router/sets/history/setModalHistory';
+import { setPanelHistory } from 'store/router/sets/history/setPanelHistory';
 import { setViewHistory } from 'store/router/sets/history/setViewHistory';
+import { setActiveModal } from 'store/router/sets/setActiveModal';
+import { setActivePanel } from 'store/router/sets/setActivePanel';
 import { setActiveView } from 'store/router/sets/setActiveView';
 
 export const useRouter = () => {

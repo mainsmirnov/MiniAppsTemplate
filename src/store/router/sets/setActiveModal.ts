@@ -1,5 +1,6 @@
-import { Action } from 'store/Action';
 import { ModalIds } from 'enums/router';
+
+import { Action } from 'store/Action';
 
 export const ACTIVE_MODAL_SET = 'activeModal/set';
 

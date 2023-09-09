@@ -1,5 +1,6 @@
-import { Action } from 'store/Action';
 import { ViewIds } from 'enums/router';
+
+import { Action } from 'store/Action';
 
 export const ACTIVE_VIEW_SET = 'activeView/set';
 

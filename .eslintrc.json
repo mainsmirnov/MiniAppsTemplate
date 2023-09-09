@@ -14,6 +14,7 @@
       "spread": true
     }
   },
+  "plugins": ["simple-import-sort"],
   "env": {
     "browser": true,
     "node": true
@@ -39,6 +40,32 @@
     }],
     // No-shadow rules for https://github.com/typescript-eslint/tslint-to-eslint-config/issues/856
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": "warn"
+    "@typescript-eslint/no-shadow": "warn",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Packages `react` related packages come first,
+          // Component styles
+          ["^react", "^redux", "^.+\\.?(css)$"],
+          // Components types, enums
+          ["^(types|enums|init|chunks|configs|hooks|helpers)(/.*|$)"],
+          ["^@?\\w"],
+          // Hooks, helpers, configs, store
+          ["^store(/.*|$)"],
+          // Icons
+          ["^.+\\.?(svg)$"],
+          // VKUI
+          ["^@vkontakte?\\w"],
+          // Panels components
+          ["^panels(/.*|$)"],
+          // Absolute components
+          // Parent imports. Put `..` last.
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^components(/.*|$)", "^\\.\\.(?!/?$)", "^\\.\\./?$", "^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error"
   }
 }

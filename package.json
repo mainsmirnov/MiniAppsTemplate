@@ -7,6 +7,7 @@
     "@vkontakte/vk-bridge": "2.7.4",
     "@vkontakte/vkjs": "0.32.2",
     "@vkontakte/vkui": "5.4.2",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.0.5",

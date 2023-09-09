@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 
-import { useRouter } from 'hooks/useRouter';
 import { ModalIds } from 'enums/router';
+import { useRouter } from 'hooks/useRouter';
 
 import { selectActiveModal } from 'store/router/selectors/selectActiveModal';
 
 import { ModalRoot } from '@vkontakte/vkui';
+
 import { TestModal } from './TestModal/TestModal';
 
 export const RootModal = () => {

@@ -1,17 +1,16 @@
-import { RouterStore, routerStore } from './routerStore';
-
-import { ACTIVE_PANEL_SET, setActivePanel } from './sets/setActivePanel';
-import { actionSetActivePanel } from './actions/actionSetActivePanel';
-import { ACTIVE_MODAL_SET, setActiveModal } from './sets/setActiveModal';
 import { actionSetActiveModal } from './actions/actionSetActiveModal';
-import { ACTIVE_VIEW_SET, setActiveView } from './sets/setActiveView';
+import { actionSetActivePanel } from './actions/actionSetActivePanel';
 import { actionSetActiveView } from './actions/actionSetActiveView';
-import { MODAL_HISTORY_SET, setModalHistory } from './sets/history/setModalHistory';
-import { PANEL_HISTORY_SET, setPanelHistory } from './sets/history/setPanelHistory';
-import { VIEW_HISTORY_SET, setViewHistory } from './sets/history/setViewHistory';
 import { actionSetModalHistory } from './actions/history/actionSetModalHistory';
 import { actionSetPanelHistory } from './actions/history/actionSetPanelHistory';
 import { actionSetViewHistory } from './actions/history/actionSetViewHistory';
+import { MODAL_HISTORY_SET, setModalHistory } from './sets/history/setModalHistory';
+import { PANEL_HISTORY_SET, setPanelHistory } from './sets/history/setPanelHistory';
+import { setViewHistory, VIEW_HISTORY_SET } from './sets/history/setViewHistory';
+import { ACTIVE_MODAL_SET, setActiveModal } from './sets/setActiveModal';
+import { ACTIVE_PANEL_SET, setActivePanel } from './sets/setActivePanel';
+import { ACTIVE_VIEW_SET, setActiveView } from './sets/setActiveView';
+import { RouterStore, routerStore } from './routerStore';
 
 export type RouterActions = ReturnType<
 | typeof setModalHistory

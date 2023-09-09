@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import { Div, ModalPage, ModalPageHeader, PanelHeaderButton } from '@vkontakte/vkui';
 import { Icon24DoneOutline } from '@vkontakte/icons';
+import { Div, ModalPage, ModalPageHeader, PanelHeaderButton } from '@vkontakte/vkui';
 
 import { ModalProps } from '../ModalProps';
 

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
 import bridge from '@vkontakte/vk-bridge';
-
 import { ConfigProvider as VKUIConfigProvider } from '@vkontakte/vkui';
-import { Adaptive } from './Adaptive';
+
 import { useRouter } from '../hooks/useRouter';
+import { Adaptive } from './Adaptive';
 
 export const ConfigProvider = () => {
   const { closeFromBrowserHistory } = useRouter();

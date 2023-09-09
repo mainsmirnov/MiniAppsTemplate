@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 import { PanelIds, ViewIds } from 'enums/router';
 import { useRouter } from 'hooks/useRouter';
 
-import { selectActivePanel } from 'store/router/selectors/selectActivePanel';
-import { selectActiveModal } from 'store/router/selectors/selectActiveModal';
 import { selectPanelHistory } from 'store/router/selectors/history/selectPanelHistory';
+import { selectActiveModal } from 'store/router/selectors/selectActiveModal';
+import { selectActivePanel } from 'store/router/selectors/selectActivePanel';
 
 import { View } from '@vkontakte/vkui';
+
 import { ShowId } from './panels/ShowId/ShowId';
 
 export const App = () => {
