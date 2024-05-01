@@ -39,7 +39,9 @@ export const App = () => {
   };
 
   // query example
-  const { data, isPending, isError, error } = useQuery({ queryKey: ['mainQuery'], queryFn: getData });
+  const { data, isPending, isError, error } = useQuery({ queryKey: ['mainQuery'], queryFn: getData, retry: 1 });
+
+  console.log(data);
 
   if (isError) {
     dispatch(setSnackbarMessage(error.message));
@@ -49,7 +51,7 @@ export const App = () => {
     <>
       <InfoSnackbar />
       {isPending && <Spinner size="medium" />}
-      {data && <Epic
+      <Epic
         activeStory={activeView}
         tabbar={isTabbarVisible && <Navbar activeView={activeView} activePanel={activePanel} />}
       >
@@ -68,7 +70,7 @@ export const App = () => {
         >
           <TestPanel id={PanelIds.Shop} />
         </View>
-      </Epic>}
+      </Epic>
     </>
 
   );
