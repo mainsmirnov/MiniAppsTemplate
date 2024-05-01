@@ -23,11 +23,7 @@ export const ShowId = ({ id }: PanelProps) => {
             </Button>
           )}
           {id === PanelIds.Panel2 && (
-            <Button
-              onClick={closePanel}
-              size="m"
-              stretched
-            >
+            <Button onClick={closePanel} size="m" stretched>
               Close panel
             </Button>
           )}

@@ -5,7 +5,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 
 import { ConfigProvider } from 'init/ConfigProvider';
 
-import { store } from 'store/storeInit';
+import store from 'store/store';
 
 const rootContainer = document.getElementById('root');
 if (!rootContainer) {
@@ -18,5 +18,5 @@ root.render(
     <Provider store={store}>
       <ConfigProvider />
     </Provider>
-  </StrictMode>,
+  </StrictMode>
 );
