@@ -4,20 +4,20 @@ import { ModalIds, PanelIds, ViewIds } from '../enums/router';
 import { Store } from './store';
 
 export type RouterState = {
-  activePanel: PanelIds;
-  panelHistory: PanelIds[];
   activeView: ViewIds;
   viewHistory: ViewIds[];
+  activePanel: Record<ViewIds, PanelIds>;
+  panelHistory: Record<ViewIds, PanelIds[]>;
   activeModal: ModalIds | null;
   modalHistory: ModalIds[];
   routerParams: Record<string, string | number>;
 };
 
 const initialState: RouterState = {
-  activePanel: PanelIds.Panel1,
-  panelHistory: [PanelIds.Panel1],
-  activeView: ViewIds.Home,
-  viewHistory: [ViewIds.Home],
+  activeView: ViewIds.Main,
+  viewHistory: [ViewIds.Main],
+  activePanel: { [ViewIds.Main]: PanelIds.Main, [ViewIds.Shop]: PanelIds.Shop },
+  panelHistory: { [ViewIds.Main]: [PanelIds.Main], [ViewIds.Shop]: [PanelIds.Shop] },
   activeModal: null,
   modalHistory: [],
   routerParams: {},
@@ -34,7 +34,7 @@ const routerSlice = createSlice({
     },
     setActivePanel(state, { payload }) {
       const panelId: PanelIds = payload;
-      state.activePanel = panelId;
+      state.activePanel[state.activeView] = panelId;
     },
     setActiveModal(state, { payload }) {
       const modalId: ModalIds = payload;
@@ -46,7 +46,7 @@ const routerSlice = createSlice({
     },
     setPanelHistory(state, { payload }) {
       const newPanelHistory: PanelIds[] = payload;
-      state.panelHistory = newPanelHistory;
+      state.panelHistory[state.activeView] = newPanelHistory;
     },
     setModalHistory(state, { payload }) {
       const newModalHistory: ModalIds[] = payload;
@@ -70,8 +70,8 @@ export const {
 
 // selectors
 export const selectActiveView = (state: Store) => state.router.activeView;
-export const selectActivePanel = (state: Store) => state.router.activePanel;
+export const selectActivePanel = (state: Store) => state.router.activePanel[state.router.activeView];
 export const selectActiveModal = (state: Store) => state.router.activeModal;
 export const selectViewHistory = (state: Store) => state.router.viewHistory;
-export const selectPanelHistory = (state: Store) => state.router.panelHistory;
+export const selectPanelHistory = (state: Store) => state.router.panelHistory[state.router.activeView];
 export const selectModalHistory = (state: Store) => state.router.modalHistory;

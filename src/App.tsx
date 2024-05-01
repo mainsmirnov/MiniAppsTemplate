@@ -6,16 +6,19 @@ import { useRouter } from 'hooks/useRouter';
 import {
   selectActiveModal,
   selectActivePanel,
+  selectActiveView,
   selectPanelHistory,
 } from 'store/routerSlice';
 
-import { View } from '@vkontakte/vkui';
+import { Epic, View } from '@vkontakte/vkui';
 
-import { ShowId } from './panels/ShowId/ShowId';
+import { Navbar } from 'components/layout/Navbar/Navbar';
+import { TestPanel } from './panels/TestPanel/TestPanel';
 
 export const App = () => {
   const { closePanel } = useRouter();
 
+  const activeView = useSelector(selectActiveView);
   const activePanel = useSelector(selectActivePanel);
   const activeModal = useSelector(selectActiveModal);
   const panelsHistory = useSelector(selectPanelHistory);
@@ -29,14 +32,26 @@ export const App = () => {
   };
 
   return (
-    <View
-      id={ViewIds.Home}
-      onSwipeBack={onSwipeBack}
-      history={panelsHistory}
-      activePanel={activePanel}
+    <Epic
+      activeStory={activeView}
+      tabbar={<Navbar activeView={activeView} activePanel={activePanel} />}
     >
-      <ShowId id={PanelIds.Panel1} />
-      <ShowId id={PanelIds.Panel2} />
-    </View>
+      <View
+        id={ViewIds.Main}
+        onSwipeBack={onSwipeBack}
+        history={panelsHistory}
+        activePanel={activePanel}
+      >
+        <TestPanel id={PanelIds.Main} />
+        <TestPanel id={PanelIds.Panel2} />
+      </View>
+      <View
+        id={ViewIds.Shop}
+        activePanel={PanelIds.Shop}
+      >
+        <TestPanel id={PanelIds.Shop} />
+      </View>
+    </Epic>
+
   );
 };

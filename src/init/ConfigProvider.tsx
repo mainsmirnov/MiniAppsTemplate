@@ -7,6 +7,8 @@ import { useRouter } from '../hooks/useRouter';
 import { Adaptive } from './Adaptive';
 
 export const ConfigProvider = () => {
+  // set up appearance logic for different platforms here
+
   const { closeFromBrowserHistory } = useRouter();
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import { Button, ButtonGroup, Div, Panel, PanelHeader } from '@vkontakte/vkui';
 
 import { PanelProps } from '../PanelProps';
 
-export const ShowId = ({ id }: PanelProps) => {
+export const TestPanel = ({ id }: PanelProps) => {
   const { openModal, openPanel, closePanel } = useRouter();
 
   return (
@@ -13,7 +13,7 @@ export const ShowId = ({ id }: PanelProps) => {
       <PanelHeader>{id}</PanelHeader>
       <Div>
         <ButtonGroup mode="vertical" stretched>
-          {id === PanelIds.Panel1 && (
+          {id === PanelIds.Main && (
             <Button
               onClick={() => openPanel(PanelIds.Panel2)}
               size="m"
@@ -25,6 +25,11 @@ export const ShowId = ({ id }: PanelProps) => {
           {id === PanelIds.Panel2 && (
             <Button onClick={closePanel} size="m" stretched>
               Close panel
+            </Button>
+          )}
+          {id === PanelIds.Shop && (
+            <Button size="m" stretched>
+              Show snackbar
             </Button>
           )}
           <Button
