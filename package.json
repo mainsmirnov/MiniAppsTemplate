@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@tanstack/react-query": "^5.32.1",
     "@vkontakte/icons": "2.35.0",
     "@vkontakte/vk-bridge": "2.7.4",
     "@vkontakte/vkjs": "0.32.2",

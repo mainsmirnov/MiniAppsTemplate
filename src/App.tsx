@@ -1,7 +1,10 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { PanelIds, ViewIds } from 'enums/router';
 import { useRouter } from 'hooks/useRouter';
+
+import { useQuery } from '@tanstack/react-query';
+import { getData } from 'backend/api';
 
 import {
   selectActiveModal,
@@ -9,9 +12,9 @@ import {
   selectActiveView,
   selectPanelHistory,
 } from 'store/routerSlice';
-import { selectTabbarVisibility } from 'store/uiSlice';
+import { selectTabbarVisibility, setSnackbarMessage } from 'store/uiSlice';
 
-import { Epic, View } from '@vkontakte/vkui';
+import { Epic, Spinner, View } from '@vkontakte/vkui';
 
 import { InfoSnackbar } from 'components/layout/InfoSnackbar/InfoSnackbar';
 import { Navbar } from 'components/layout/Navbar/Navbar';
@@ -19,6 +22,7 @@ import { TestPanel } from './panels/TestPanel/TestPanel';
 
 export const App = () => {
   const { closePanel } = useRouter();
+  const dispatch = useDispatch();
 
   const activeView = useSelector(selectActiveView);
   const activePanel = useSelector(selectActivePanel);
@@ -34,10 +38,18 @@ export const App = () => {
     closePanel();
   };
 
+  // query example
+  const { data, isPending, isError, error } = useQuery({ queryKey: ['mainQuery'], queryFn: getData });
+
+  if (isError) {
+    dispatch(setSnackbarMessage(error.message));
+  }
+
   return (
     <>
       <InfoSnackbar />
-      <Epic
+      {isPending && <Spinner size="medium" />}
+      {data && <Epic
         activeStory={activeView}
         tabbar={isTabbarVisible && <Navbar activeView={activeView} activePanel={activePanel} />}
       >
@@ -56,7 +68,7 @@ export const App = () => {
         >
           <TestPanel id={PanelIds.Shop} />
         </View>
-      </Epic>
+      </Epic>}
     </>
 
   );
