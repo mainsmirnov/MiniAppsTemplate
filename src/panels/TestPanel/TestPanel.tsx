@@ -1,5 +1,9 @@
+import { useDispatch } from 'react-redux';
+
 import { ModalIds, PanelIds } from 'enums/router';
 import { useRouter } from 'hooks/useRouter';
+
+import { setSnackbarMessage } from 'store/uiSlice';
 
 import { Button, ButtonGroup, Div, Panel, PanelHeader } from '@vkontakte/vkui';
 
@@ -7,6 +11,7 @@ import { PanelProps } from '../PanelProps';
 
 export const TestPanel = ({ id }: PanelProps) => {
   const { openModal, openPanel, closePanel } = useRouter();
+  const dispatch = useDispatch();
 
   return (
     <Panel id={id}>
@@ -28,7 +33,7 @@ export const TestPanel = ({ id }: PanelProps) => {
             </Button>
           )}
           {id === PanelIds.Shop && (
-            <Button size="m" stretched>
+            <Button onClick={()=>dispatch(setSnackbarMessage('Message'))} size="m" stretched>
               Show snackbar
             </Button>
           )}
