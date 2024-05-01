@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import '@vkontakte/vkui/dist/vkui.css';
+import './styles/vkui-rewrites.css';
 
 import { ConfigProvider } from 'init/ConfigProvider';
 
