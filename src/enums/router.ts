@@ -1,3 +1,5 @@
+// it is necessary to give the same name to the initial panel in the view
+
 export enum ViewIds {
   Main = 'Main',
   Shop = 'Shop'

@@ -7,7 +7,6 @@ import { uiReducer, UserInterfaceState } from './uiSlice';
 export type Store = {
   ui: UserInterfaceState;
   router: RouterState;
-
 };
 
 const store = configureStore({
