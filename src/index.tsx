@@ -12,16 +12,16 @@ import store from 'store/store';
 
 const rootContainer = document.getElementById('root');
 if (!rootContainer) {
-  throw Error('Can\'t find root container');
+  throw Error("Can't find root container");
 }
 
-const queyClient = new QueryClient();
+const queryClient = new QueryClient();
 
 const root = createRoot(rootContainer);
 root.render(
   <StrictMode>
     <Provider store={store}>
-      <QueryClientProvider client={queyClient}>
+      <QueryClientProvider client={queryClient}>
         <ConfigProvider />
       </QueryClientProvider>
     </Provider>
