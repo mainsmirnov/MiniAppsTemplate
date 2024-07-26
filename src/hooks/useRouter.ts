@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import { selectModalHistory, selectPanelHistory, selectViewHistory } from 'store/selectors';
+
 import { ModalIds, PanelIds, ViewIds } from '../enums/router';
 import {
-  selectModalHistory,
-  selectPanelHistory,
-  selectViewHistory,
   setActiveModal,
   setActivePanel,
   setActiveView,
@@ -57,9 +56,7 @@ export const useRouter = () => {
     newModalHistory.pop();
 
     dispatch(setModalHistory(newModalHistory));
-    dispatch(
-      setActiveModal(newModalHistory[newModalHistory.length - 1] || null)
-    );
+    dispatch(setActiveModal(newModalHistory[newModalHistory.length - 1] || null));
   };
 
   const closeAllModals = () => {

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectSnackbarMessage, setSnackbarMessage } from 'store/uiSlice';
+import { selectSnackbarMessage } from 'store/selectors';
+import { setSnackbarMessage } from 'store/uiSlice';
 
 import { Icon12Cancel } from '@vkontakte/icons';
 import { Snackbar } from '@vkontakte/vkui';
@@ -18,7 +19,9 @@ export const InfoSnackbar = () => {
     return null;
   }
 
-  return <Snackbar duration={3000} onClose={handleClose} after={<Icon12Cancel onClick={handleClose} />}>
-    {message}
-  </Snackbar>;
+  return (
+    <Snackbar duration={3000} onClose={handleClose} after={<Icon12Cancel onClick={handleClose} />}>
+      {message}
+    </Snackbar>
+  );
 };

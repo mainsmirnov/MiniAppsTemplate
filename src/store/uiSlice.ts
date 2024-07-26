@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { Store } from './store';
-
 export type UserInterfaceState = {
   snackbarMessage: string | undefined;
   // e.g. mode: 'light' | 'dark';
@@ -28,6 +26,3 @@ export const uiReducer = uiSlice.reducer;
 
 // actions
 export const { setSnackbarMessage } = uiSlice.actions;
-
-// selectors
-export const selectSnackbarMessage = (state: Store) => state.ui.snackbarMessage;

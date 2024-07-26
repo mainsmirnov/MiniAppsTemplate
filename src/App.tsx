@@ -11,7 +11,7 @@ import {
   selectActivePanel,
   selectActiveView,
   selectPanelHistory,
-} from 'store/routerSlice';
+} from 'store/selectors';
 import { setSnackbarMessage } from 'store/uiSlice';
 
 import { Epic, Spinner, View } from '@vkontakte/vkui';
