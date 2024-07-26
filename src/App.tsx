@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PanelIds, ViewIds } from 'enums/router';
@@ -44,11 +45,19 @@ export const App = () => {
     retry: 1,
   });
 
-  console.log(data);
+  useEffect(() => {
+    if (!data) {
+      console.log('Требуется авторизация');
+    }
 
-  if (isError) {
-    dispatch(setSnackbarMessage(error.message));
-  }
+    if (isError) {
+      dispatch(setSnackbarMessage(error.message));
+    }
+
+    if (data) {
+      console.log(data);
+    }
+  }, [dispatch, data, isError, error]);
 
   return (
     <>
