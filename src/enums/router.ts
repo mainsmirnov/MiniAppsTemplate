@@ -2,7 +2,7 @@
 
 export enum ViewIds {
   Main = 'Main',
-  Shop = 'Shop'
+  Shop = 'Shop',
 }
 
 export enum PanelIds {

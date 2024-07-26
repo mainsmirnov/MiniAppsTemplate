@@ -1,7 +1,7 @@
 import { PanelIds, ViewIds } from 'enums/router';
 import { useRouter } from 'hooks/useRouter';
 
-import { Tabbar, TabbarItem } from '@vkontakte/vkui';
+import { Tabbar as VKUITabbar, TabbarItem } from '@vkontakte/vkui';
 
 const tabs = [
   {
@@ -17,10 +17,9 @@ const tabs = [
 interface TabbarProps {
   activeView: ViewIds;
   activePanel: PanelIds;
-
 }
 
-export const Navbar = ({ activeView, activePanel }: TabbarProps) => {
+export const Tabbar = ({ activeView, activePanel }: TabbarProps) => {
   const { openView, closePanel } = useRouter();
 
   const onTabClick = (id: ViewIds) => {
@@ -41,8 +40,12 @@ export const Navbar = ({ activeView, activePanel }: TabbarProps) => {
     openView(id);
   };
 
+  if (activePanel === PanelIds.Panel2) {
+    return null;
+  }
+
   return (
-    <Tabbar shadow={false}>
+    <VKUITabbar shadow={false}>
       {tabs.map(({ id, text }) => (
         <TabbarItem
           key={id}
@@ -53,6 +56,6 @@ export const Navbar = ({ activeView, activePanel }: TabbarProps) => {
           {/* <Icon /> */}
         </TabbarItem>
       ))}
-    </Tabbar>
+    </VKUITabbar>
   );
 };

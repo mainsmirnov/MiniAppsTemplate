@@ -4,13 +4,11 @@ import { Store } from './store';
 
 export type UserInterfaceState = {
   snackbarMessage: string | undefined;
-  isTabbarVisible: boolean;
   // e.g. mode: 'light' | 'dark';
 };
 
 const initialState: UserInterfaceState = {
   snackbarMessage: undefined,
-  isTabbarVisible: true,
 };
 
 export const uiSlice = createSlice({
@@ -22,10 +20,6 @@ export const uiSlice = createSlice({
       const message: string = payload;
       state.snackbarMessage = message;
     },
-    setTabbarVisibility(state, { payload }) {
-      const isVisible: boolean = payload;
-      state.isTabbarVisible = isVisible;
-    },
   },
 });
 
@@ -33,8 +27,7 @@ export const uiSlice = createSlice({
 export const uiReducer = uiSlice.reducer;
 
 // actions
-export const { setSnackbarMessage, setTabbarVisibility } = uiSlice.actions;
+export const { setSnackbarMessage } = uiSlice.actions;
 
 // selectors
 export const selectSnackbarMessage = (state: Store) => state.ui.snackbarMessage;
-export const selectTabbarVisibility = (state: Store) => state.ui.isTabbarVisible;
