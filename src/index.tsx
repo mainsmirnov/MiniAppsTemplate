@@ -12,7 +12,7 @@ import store from 'store/store';
 
 const rootContainer = document.getElementById('root');
 if (!rootContainer) {
-  throw Error("Can't find root container");
+  throw Error('Root container not found');
 }
 
 const queryClient = new QueryClient();
