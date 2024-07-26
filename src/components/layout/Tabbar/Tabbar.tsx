@@ -3,16 +3,7 @@ import { useRouter } from 'hooks/useRouter';
 
 import { Tabbar as VKUITabbar, TabbarItem } from '@vkontakte/vkui';
 
-const tabs = [
-  {
-    id: ViewIds.Main,
-    text: 'Main',
-  },
-  {
-    id: ViewIds.Shop,
-    text: 'Shop',
-  },
-];
+import { tabs } from './tabs';
 
 interface TabbarProps {
   activeView: ViewIds;
@@ -46,14 +37,14 @@ export const Tabbar = ({ activeView, activePanel }: TabbarProps) => {
 
   return (
     <VKUITabbar shadow={false}>
-      {tabs.map(({ id, text }) => (
+      {tabs.map(({ id, text, icon }) => (
         <TabbarItem
           key={id}
           text={text}
           selected={activeView === id}
           onClick={() => onTabClick(id)}
         >
-          {/* <Icon /> */}
+          {icon}
         </TabbarItem>
       ))}
     </VKUITabbar>
