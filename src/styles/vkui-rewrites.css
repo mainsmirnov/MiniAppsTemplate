@@ -1,0 +1,98 @@
+/* the code below is an example */
+
+/* global rewrites and tokens */
+:root {
+    --Helvetica: 'Helvetica', -apple-system, system-ui, sans-serif;
+
+    --color-main: #644889;
+
+    --vkui--color_text_primary: var(--color-main);
+    --vkui--font_family_base: var(--Helvetica);
+    
+}
+
+/* rewrites of custom tokens for dark mode */
+
+body[scheme="vkcom_dark"],
+body[scheme="space_gray"] {
+  --color-main: #742dbb;
+}
+
+/* rewrites for light mode */
+
+.vkui--vkBase--light,
+.vkui--vkIOS--light {
+    --vkui--color_text_primary: var(--color-main);
+    --vkui--color_icon_accent_themed: var(--color-main);
+    --vkui--color_background_content: var(--color-main);
+  
+    --vkui--font_family_accent: var(--Helvetica);
+    --vkui--font_family_base: var(--Helvetica);
+    --vkui--font_footnote--font_family--regular: var(--Helvetica);
+}
+
+/* rewrites for typography */
+
+.vkuiHeadline--level-1 {
+    --vkui--font_headline1--font_family--regular: var(--Helvetica);
+    --vkui--font_headline1--font_size--regular: 32px;
+    --vkui--font_headline1--line_height--regular: 120%;
+    --vkui--font_headline1--font_weight--regular: 500;
+  
+    --vkui--font_headline1--font_size--compact: 32px;
+    --vkui--font_headline1--line_height--compact: 120%;
+  }
+  
+  .vkuiTitle--level-1 {
+    --vkui--font_title1--font_family--regular: var(--Helvetica);
+    --vkui--font_title1--font_size--regular: 32px;
+    --vkui--font_title1--line_height--regular: 100%;
+    --vkui--font_title1--font_weight--regular: 500;
+  }
+
+  .vkuiCaption--level-1 {
+    --vkui--font_caption1--font_family--regular: var(--Helvetica);
+    --vkui--font_caption1--font_size--regular: 14px;
+    --vkui--font_caption1--line_height--regular: 130%;
+    --vkui--font_caption1--font_weight--regular: 300;
+  }
+  
+  .vkuiText {
+    --vkui--font_text--font_family--regular: var(--Helvetica);
+    --vkui--font_text--font_size--regular: 16px;
+    --vkui--font_text--line_height--regular: 22px;
+    --vkui--font_text--font_weight--regular: 300;
+  
+    --vkui--font_text--font_size--compact: 16px;
+    --vkui--font_text--line_height--compact: 22px;
+  }
+
+  /* rewrites for buttons */
+
+.vkuiButton {
+    --vkui--size_border_radius--regular: 10px;
+  
+    --vkui--color_background_accent_themed: var(--color-main);
+    --vkui--color_background_accent_themed--hover: var(--color-main);
+    --vkui--color_background_accent_themed--active: var(--color-main);
+    --vkui--color_background_secondary: var(--color-main);
+    --vkui--size_button_large_height--regular: 44px;
+    --vkui--size_button_large_height--compact: 44px;
+    --vkui--font_headline1--font_size--regular: 17px;
+    --vkui--font_headline1--font_size--compact: 17px;
+    --vkui--font_title3--font_size--regular: 17px;
+    --vkui--font_title3--font_size--compact: 17px;
+  }
+  
+  .vkuiButton__in {
+    --vkui--font_family_base: var(--Helvetica);
+  }
+  
+  .vkuiButton--hover {
+    opacity: 0.8;
+  }
+  
+  .vkuiButton--active .vkuiButton__in {
+    opacity: 0.5;
+  }
+  

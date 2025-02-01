@@ -1,5 +1,5 @@
 import { PanelIds } from 'enums/router';
 
-export type PanelProps = {
+export interface PanelProps {
   id: PanelIds;
-};
+}

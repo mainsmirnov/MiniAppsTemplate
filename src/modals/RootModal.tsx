@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { ModalIds } from 'enums/router';
 import { useRouter } from 'hooks/useRouter';
 
-import { selectActiveModal } from 'store/router/selectors/selectActiveModal';
+import { selectActiveModal } from 'store/selectors';
 
 import { ModalRoot } from '@vkontakte/vkui';
 

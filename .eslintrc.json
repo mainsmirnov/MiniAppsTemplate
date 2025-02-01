@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "react-app",
-    "react-app/jest",
-    "@vkontakte/eslint-config/typescript/react"
-  ],
+  "extends": ["@vkontakte/eslint-config/typescript/react"],
   "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaVersion": 6,
@@ -29,15 +25,25 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-magic-numbers": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
-    "@typescript-eslint/no-extra-parens": ["error", "all", {
-      "ignoreJSX": "all"
-    }],
-    "@typescript-eslint/no-unused-vars": ["error", {
-      "ignoreRestSiblings": true
-    }],
-    "no-restricted-imports": ["error", {
-      "patterns": ["@vkontakte/icons/dist/*"]
-    }],
+    "@typescript-eslint/no-extra-parens": [
+      "error",
+      "all",
+      {
+        "ignoreJSX": "all"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@vkontakte/icons/dist/*"]
+      }
+    ],
     // No-shadow rules for https://github.com/typescript-eslint/tslint-to-eslint-config/issues/856
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": "warn",
@@ -62,7 +68,14 @@
           // Absolute components
           // Parent imports. Put `..` last.
           // Other relative imports. Put same-folder imports and `.` last.
-          ["^components(/.*|$)", "^\\.\\.(?!/?$)", "^\\.\\./?$", "^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
+          [
+            "^components(/.*|$)",
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ]
         ]
       }
     ],

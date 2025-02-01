@@ -1,7 +1,12 @@
 import { memo } from 'react';
 
 import { Icon24DoneOutline } from '@vkontakte/icons';
-import { Div, ModalPage, ModalPageHeader, PanelHeaderButton } from '@vkontakte/vkui';
+import {
+  Div,
+  ModalPage,
+  ModalPageHeader,
+  PanelHeaderButton,
+} from '@vkontakte/vkui';
 
 import { ModalProps } from '../ModalProps';
 
@@ -16,8 +21,6 @@ export const TestModal = memo(({ id, onClose }: ModalProps) => (
     >
       Test VKUI Modal
     </ModalPageHeader>
-    <Div>
-      Some content
-    </Div>
+    <Div>Some content</Div>
   </ModalPage>
 ));
