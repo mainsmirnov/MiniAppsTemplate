@@ -20,28 +20,25 @@ export const ConfigProvider = () => {
     }
   };
 
-  const bridgeListener = useCallback(
-    ({ detail: { type } }: VKBridgeEvent<AnyReceiveMethodName>) => {
-      switch (type) {
-        case 'VKWebAppUpdateConfig':
-          setDarkStatusBarColor();
-          return;
+  const bridgeListener = useCallback(({ detail: { type } }: VKBridgeEvent<AnyReceiveMethodName>) => {
+    switch (type) {
+      case 'VKWebAppUpdateConfig':
+        setDarkStatusBarColor();
+        return;
 
-        case 'VKWebAppViewRestore':
-          // user request when restore app
-          // requestGetUser().then(
-          //   (data) => {
-          //     queryClient.setQueryData(['user'], data);
-          //   },
-          //   (error) => {
-          //     dispatch(setSnackbarMessage(error.message));
-          //   },
-          // );
-          return;
-      }
-    },
-    []
-  );
+      case 'VKWebAppViewRestore':
+        // user request when restore app
+        // requestGetUser().then(
+        //   (data) => {
+        //     queryClient.setQueryData(['user'], data);
+        //   },
+        //   (error) => {
+        //     dispatch(setSnackbarMessage(error.message));
+        //   },
+        // );
+        return;
+    }
+  }, []);
 
   useEffect(() => {
     window.addEventListener('popstate', closeFromBrowserHistory);

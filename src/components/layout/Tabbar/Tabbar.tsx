@@ -36,11 +36,11 @@ export const Tabbar = ({ activeView, activePanel }: TabbarProps) => {
   }
 
   return (
-    <VKUITabbar shadow={false}>
+    <VKUITabbar plain={false}>
       {tabs.map(({ id, text, icon }) => (
         <TabbarItem
           key={id}
-          text={text}
+          label={text}
           selected={activeView === id}
           onClick={() => onTabClick(id)}
         >

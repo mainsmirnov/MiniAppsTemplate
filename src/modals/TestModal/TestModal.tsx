@@ -1,26 +1,33 @@
 import { memo } from 'react';
 
+import { useRouter } from 'hooks/useRouter';
+
 import { Icon24DoneOutline } from '@vkontakte/icons';
 import {
-  Div,
+  Box,
   ModalPage,
   ModalPageHeader,
+  ModalPageProps,
   PanelHeaderButton,
 } from '@vkontakte/vkui';
 
-import { ModalProps } from '../ModalProps';
+export const TestModal = memo(({ id, onClose }: ModalPageProps) => {
+  const { closeModal } = useRouter();
 
-export const TestModal = memo(({ id, onClose }: ModalProps) => (
-  <ModalPage id={id} onClose={onClose}>
-    <ModalPageHeader
-      after={
-        <PanelHeaderButton aria-label="Закрыть">
-          <Icon24DoneOutline onClick={onClose} />
-        </PanelHeaderButton>
-      }
-    >
-      Test VKUI Modal
-    </ModalPageHeader>
-    <Div>Some content</Div>
-  </ModalPage>
-));
+  return (
+    <ModalPage id={id} onClose={onClose}>
+      <ModalPageHeader
+        after={
+          <PanelHeaderButton aria-label="Закрыть">
+            <Icon24DoneOutline onClick={closeModal} />
+          </PanelHeaderButton>
+        }
+      >
+        Test VKUI Modal
+      </ModalPageHeader>
+      <Box paddingInline="2xl" paddingBlock="xl">
+        Some content
+      </Box>
+    </ModalPage>
+  );
+});

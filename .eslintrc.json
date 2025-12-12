@@ -1,18 +1,17 @@
 {
-  "extends": ["@vkontakte/eslint-config/typescript/react"],
+  "extends": ["@vkontakte/eslint-config/typescript"],
   "parserOptions": {
     "project": "./tsconfig.json",
-    "ecmaVersion": 6,
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true,
-      "restParams": true,
-      "spread": true
+      "jsx": true
     }
   },
   "plugins": ["simple-import-sort"],
   "env": {
     "browser": true,
+    "es2021": true,
     "node": true
   },
   "globals": {
@@ -80,5 +79,16 @@
       }
     ],
     "simple-import-sort/exports": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["vite.config.ts"],
+      "parserOptions": {
+        "project": "./tsconfig.node.json"
+      },
+      "env": {
+        "node": true
+      }
+    }
+  ]
 }

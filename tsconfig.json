@@ -1,15 +1,13 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
+    "types": ["vite/client"],
     "target": "esnext",
     "module": "esnext",
-    "lib": [
-      "es6",
-      "dom"
-    ],
+    "lib": ["ES2018", "DOM", "DOM.Iterable"],
     "outDir": "build",
     "baseUrl": "src",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
@@ -32,5 +30,6 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

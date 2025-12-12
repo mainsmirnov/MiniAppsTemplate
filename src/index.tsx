@@ -1,8 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import '@vkontakte/vkui/dist/vkui.css';
-import './styles/vkui-rewrites.css';
+import '@vkontakte/vkui/dist/cssm/styles/themes.css';
 
 import { ConfigProvider } from 'init/ConfigProvider';
 
@@ -25,5 +24,5 @@ root.render(
         <ConfigProvider />
       </QueryClientProvider>
     </Provider>
-  </StrictMode>
+  </StrictMode>,
 );

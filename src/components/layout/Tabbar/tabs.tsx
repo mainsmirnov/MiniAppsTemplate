@@ -1,7 +1,7 @@
 import { ViewIds } from 'enums/router';
 
-import { ReactComponent as IconMain } from './icons/main.svg';
-import { ReactComponent as IconShop } from './icons/shop.svg';
+import IconMain from './icons/main.svg?react';
+import IconShop from './icons/shop.svg?react';
 
 export const tabs = [
   {

@@ -5,9 +5,7 @@ import { useRouter } from 'hooks/useRouter';
 
 import { setSnackbarMessage } from 'store/uiSlice';
 
-import { Button, ButtonGroup, Div, Panel, PanelHeader } from '@vkontakte/vkui';
-
-import { PanelProps } from '../PanelProps';
+import { Box, Button, ButtonGroup, Panel, PanelHeader, PanelProps } from '@vkontakte/vkui';
 
 export const TestPanel = ({ id }: PanelProps) => {
   const { openModal, openPanel, closePanel } = useRouter();
@@ -16,7 +14,7 @@ export const TestPanel = ({ id }: PanelProps) => {
   return (
     <Panel id={id}>
       <PanelHeader>{id}</PanelHeader>
-      <Div>
+      <Box paddingInline="2xl" paddingBlock="xl">
         <ButtonGroup mode="vertical" stretched>
           {id === PanelIds.Main && (
             <Button
@@ -45,7 +43,7 @@ export const TestPanel = ({ id }: PanelProps) => {
             Open Test Modal
           </Button>
         </ButtonGroup>
-      </Div>
+      </Box>
     </Panel>
   );
 };

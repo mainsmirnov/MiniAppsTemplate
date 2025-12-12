@@ -20,7 +20,12 @@ export const InfoSnackbar = () => {
   }
 
   return (
-    <Snackbar duration={3000} onClose={handleClose} after={<Icon12Cancel onClick={handleClose} />}>
+    <Snackbar
+      placement="bottom"
+      duration={3000}
+      onClose={handleClose}
+      after={<Icon12Cancel onClick={handleClose} />}
+    >
       {message}
     </Snackbar>
   );

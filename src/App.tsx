@@ -62,7 +62,7 @@ export const App = () => {
   return (
     <>
       <InfoSnackbar />
-      {isPending && <Spinner size="medium" />}
+      {isPending && <Spinner size="m" />}
       <Epic
         activeStory={activeView}
         tabbar={<Tabbar activeView={activeView} activePanel={activePanel} />}
